@@ -4,7 +4,7 @@ Tags: woocommerce, ecommerce, e-commerce, client, customer, checkout, admin, pho
 Requires at least: 5.4
 Tested up to: 6.5
 Requires PHP: 7.0
-Stable tag: 3.2
+Stable tag: 3.3
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -101,8 +101,12 @@ Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for
 
 == Changelog ==
 
+= 3.3 - 2024-01-29 =
+* [DEV] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Deprecate non-autocomplete search method on the checkout
+* [DEV] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Plugin updater improvements
+
 = 3.2 - 2024-01-23 =
-* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Better feedback when the license is expired (Pro version)
+* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Better feedback when the license is expired
 * Tested with WordPress 6.5-alpha-57299 and WooCommerce 8.5.1
 
 = 3.1 - 2023-12-19 =
