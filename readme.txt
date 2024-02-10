@@ -45,6 +45,8 @@ In addition to all you can do with the free plugin, the [paid add-on](https://pt
 * Technical support;
 * Continued development;
 
+Try the PRO add-on for free [here](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin#testimonials)!
+
 = Other (premium) plugins =
 
 Already know our other WooCommerce (premium) plugins?
@@ -71,15 +73,17 @@ Add [this](https://gist.github.com/webdados/6e0f3cedb315bfdb9ac258bc6e630101) to
 Administrators and Shop managers can use "Shop as client" on the checkout.
 Add [this](https://gist.github.com/webdados/0f1a8e5ca2cd98276a9ae73918e9b842) to your (child) theme functions.php file if you want to allow other user roles to use this functionality.
 
-= I’m giving discounts user or user role based. Will this work? =
+= I’m giving discounts user or user role-based. Will this work? =
 
-No. The logged in user is the Administrator or Shop Manager. It’s not possible to integrate with the vast amount of user or user role-based discount plugins when the logged in user is not the customer himself.
+No. Yes. It’s complicated...
+
+The logged in user is the Administrator or Shop Manager. It’s not possible to integrate with the vast amount of user or user role-based discount plugins when the logged in user is not the customer himself, so any customer roled-based discounts will not be applied.
 
 However, our PRO add-on integrates with the [User Switching](https://wordpress.org/plugins/user-switching/) plugin and sets the Administrator or Shop Manager that switched to the customer account as the order handler upon checkout, thus allowing to benefit from the fact the customer is logged in and still use our plugin functionalities, like the payment request gateway and seller tracking.
 
 = Is this plugin compatible with the new WooCommerce High-Performance Order Storage? =
 
-Yes, in beta, from version 2.1 onwards.
+Yes, from version 2.1 onwards.
 
 = Is this plugin compatible with the new WooCommerce block-based Cart and Checkout? =
 
