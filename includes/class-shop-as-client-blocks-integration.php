@@ -49,6 +49,7 @@ class ShopAsClient_Blocks_Integration implements IntegrationInterface {
 	public function get_script_data() {
 
 		$data = array(
+			'canCheckout'         => wc_string_to_bool( shop_as_client_can_checkout() ),
 			'defaultShopAsClient' => wc_string_to_bool( apply_filters( 'shop_as_client_default_shop_as_client', 'yes' ) ),
 			'defaultCreateUser'   => wc_string_to_bool( apply_filters( 'shop_as_client_default_create_user', 'no' ) ),
 			'showProAddOnNotice'  => true,

@@ -14,8 +14,12 @@ import { applyFilters } from '@wordpress/hooks';
 import { withFilteredAttributes } from './../utils';
 import attributes from './attributes';
 
-const { defaultShopAsClient, defaultCreateUser, showProAddOnNotice } =
-	getSetting('ptwoo_shop_as_client_data');
+const {
+	canCheckout,
+	defaultShopAsClient,
+	defaultCreateUser,
+	showProAddOnNotice,
+} = getSetting('ptwoo_shop_as_client_data');
 
 const Block = (props) => {
 	const { className } = props;
@@ -25,8 +29,14 @@ const Block = (props) => {
 
 	const ShopAsClientAddOns = applyFilters('shopAsClient.AddOns', null, {
 		...props,
+		canCheckout,
 		shopAsClient,
+		createUser,
 	});
+
+	if (!canCheckout) {
+		return null;
+	}
 
 	return (
 		<div className={className}>
