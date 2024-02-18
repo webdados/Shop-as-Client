@@ -6,13 +6,13 @@ import { useState, createInterpolateElement } from '@wordpress/element';
 import { ExternalLink } from '@wordpress/components';
 import { CheckboxControl } from '@woocommerce/blocks-components';
 import { getSetting } from '@woocommerce/settings';
+import { applyFilters } from '@wordpress/hooks';
 
 /**
  * Internal dependencies
  */
 import { withFilteredAttributes } from './../utils';
 import attributes from './attributes';
-import { ShopAsClientAddOns } from './slot-fill';
 
 const { defaultShopAsClient, defaultCreateUser, showProAddOnNotice } =
 	getSetting('ptwoo_shop_as_client_data');
@@ -23,6 +23,8 @@ const Block = (props) => {
 	const [shopAsClient, setShopAsClient] = useState(defaultShopAsClient);
 	const [createUser, setCreateUser] = useState(defaultCreateUser);
 
+	const ShopAsClientAddOns = applyFilters('shopAsClient.AddOns', null, props);
+
 	return (
 		<div className={className}>
 			<CheckboxControl
@@ -30,7 +32,7 @@ const Block = (props) => {
 				checked={shopAsClient}
 				onChange={setShopAsClient}
 			/>
-			<ShopAsClientAddOns.Slot fillProps={{ props }} />
+			{ShopAsClientAddOns}
 			{shopAsClient && (
 				<CheckboxControl
 					label={__(
