@@ -23,7 +23,10 @@ const Block = (props) => {
 	const [shopAsClient, setShopAsClient] = useState(defaultShopAsClient);
 	const [createUser, setCreateUser] = useState(defaultCreateUser);
 
-	const ShopAsClientAddOns = applyFilters('shopAsClient.AddOns', null, props);
+	const ShopAsClientAddOns = applyFilters('shopAsClient.AddOns', null, {
+		...props,
+		shopAsClient,
+	});
 
 	return (
 		<div className={className}>
