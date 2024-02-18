@@ -30,6 +30,7 @@ const Block = (props) => {
 				checked={shopAsClient}
 				onChange={setShopAsClient}
 			/>
+			<ShopAsClientAddOns.Slot fillProps={{ props }} />
 			{shopAsClient && (
 				<CheckboxControl
 					label={__(
@@ -40,7 +41,6 @@ const Block = (props) => {
 					onChange={setCreateUser}
 				/>
 			)}
-			<ShopAsClientAddOns.Slot fillProps={{ props }} />
 			{showProAddOnNotice && (
 				<div className="wc-block-components-notices">
 					{createInterpolateElement(
