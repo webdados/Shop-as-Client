@@ -4,7 +4,7 @@ Tags: woocommerce, ecommerce, e-commerce, client, customer, checkout, admin, pho
 Requires at least: 5.4
 Tested up to: 6.5
 Requires PHP: 7.0
-Stable tag: 3.3
+Stable tag: 3.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -44,6 +44,8 @@ In addition to all you can do with the free plugin, the [paid add-on](https://pt
 	* [NIF (Num. de Contribuinte Português) for WooCommerce](https://wordpress.org/plugins/nif-num-de-contribuinte-portugues-for-woocommerce/)
 * Technical support;
 * Continued development;
+
+**Now available in lifetime licensing**
 
 Try the PRO add-on for free [here](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin#testimonials)!
 
@@ -104,6 +106,12 @@ You can report any security bugs found in the source code of this plugin through
 Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for-woocommerce-pro-add-on-faq/)
 
 == Changelog ==
+
+= 3.4 - 2024-02-20 =
+* [DEV] Change plugin loading priority
+* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Requires Shop As Client (free) 3.4
+* [DEV] Requires WooCommerce 5.4 or above
+* [DEV] Tested with WordPress 6.5-beta1-57656 and WooCommerce 8.6.0
 
 = 3.3 - 2024-01-29 =
 * [DEV] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Deprecate non-autocomplete search method on the checkout
