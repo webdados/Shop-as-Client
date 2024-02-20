@@ -4,7 +4,7 @@ use Automattic\WooCommerce\Blocks\Integrations\IntegrationInterface;
 /**
  * Class for integrating with WooCommerce Blocks
  */
-class ShopAsClient_Blocks_Integration implements IntegrationInterface {
+class ShopAsClient_Checkout_Blocks implements IntegrationInterface {
 
 	/**
 	 * The name of the integration.
