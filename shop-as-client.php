@@ -27,28 +27,27 @@ define( 'SHOPASCLIENT_REQUIRED_WC', '5.4' );
 add_action( 'plugins_loaded', function() {
 	if ( class_exists( 'WooCommerce' ) && defined( 'WC_VERSION' ) && version_compare( WC_VERSION, SHOPASCLIENT_REQUIRED_WC, '>=' ) ) {
 
-		// Version
+		/* Version */
 		if ( ! function_exists( 'get_plugin_data' ) ) {
 			include ABSPATH . '/wp-admin/includes/plugin.php';
 		}
 		$temp_plugin_data = get_plugin_data( __FILE__ );
 		define( 'SHOPASCLIENT_VERSION', $temp_plugin_data['Version'] );
 	
-		// Languages
+		/* Languages */
 		add_action( 'plugins_loaded', 'shop_as_client_init', 7 );
 		function shop_as_client_init() {
 			load_plugin_textdomain( 'shop-as-client' );
 			add_action( 'wp_enqueue_scripts', 'shop_as_client_enqueue_scripts' );
 		}
 	
-		// Can checkout with shop as client?
-		// Should be used for both classic and blocks checkout
+		/* Can checkout with shop as client? - Should be used for both classic and blocks checkout */
 		function shop_as_client_can_checkout() {
 			// The shop_as_client_allow_checkout filter can be used to allow other user roles to use this functionality - Use carefully and wisely
 			return current_user_can( 'manage_options' ) || current_user_can( 'manage_woocommerce' ) || apply_filters( 'shop_as_client_allow_checkout', false );
 		}
 	
-		// Our field
+		/* Our field - Classic checkout */
 		add_filter( 'woocommerce_billing_fields' , 'shop_as_client_init_woocommerce_billing_fields', PHP_INT_MAX );
 		function shop_as_client_init_woocommerce_billing_fields( $fields ) {
 			if ( shop_as_client_can_checkout() && is_checkout() ) {
@@ -86,8 +85,7 @@ add_action( 'plugins_loaded', function() {
 			return $fields;
 		}
 	
-		// Enqueue scripts
-		// Classic checkout only - Blocks load their own scripts
+		/* Enqueue scripts - Classic checkout only */
 		function shop_as_client_enqueue_scripts() {
 			if (
 				function_exists( 'is_checkout' )
@@ -107,8 +105,7 @@ add_action( 'plugins_loaded', function() {
 			}
 		}
 	
-		// Force our field defaults
-		// Should be used for both classic and blocks checkout
+		/* Force our field defaults - Should be used for both classic and blocks checkout */
 		add_filter( 'default_checkout_billing_shop_as_client', 'shop_as_client_default_checkout_billing_shop_as_client', 10, 2 );
 		function shop_as_client_default_checkout_billing_shop_as_client( $value, $input ) {
 			return apply_filters( 'shop_as_client_default_shop_as_client', 'yes' );
@@ -118,18 +115,20 @@ add_action( 'plugins_loaded', function() {
 			return apply_filters( 'shop_as_client_default_create_user', 'no' );
 		}
 	
-		// Get order "shop as client"
+		/* Get order "shop as client" */
 		function shop_as_client_get_order_status( $order ) {
 			return 'yes' === $order->get_meta( '_billing_shop_as_client' );
 		}
 	
-		// Return yes to woocommerce_registration_generate_password
+		/* Return yes to woocommerce_registration_generate_password */
 		function shop_as_client_woocommerce_registration_generate_password( $value ) {
 			return 'yes';
 		}
 	
-		// Set order user - Inspiration: https://gist.github.com/twoelevenjay/80294a635969a54e4693
-		// Classic checkout only - Blocks alternative missing
+		/**
+		 * Set order user - Inspiration: https://gist.github.com/twoelevenjay/80294a635969a54e4693
+		 * Classic checkout only - Blocks alternative missing - https://github.com/woocommerce/woocommerce/issues/44530
+		**/
 		add_filter( 'woocommerce_checkout_customer_id', 'shop_as_client_woocommerce_checkout_customer_id' );
 		function shop_as_client_woocommerce_checkout_customer_id( $user_id ) {
 			if ( shop_as_client_can_checkout() ) {
@@ -173,8 +172,7 @@ add_action( 'plugins_loaded', function() {
 			return $user_id;
 		}
 	
-		// Create the user/customer
-		// Should be used for both classic and blocks checkout
+		/* Create the user/customer - Should be used for both classic and blocks checkout */
 		function shop_as_client_create_customer( $user_email, $user_first_name, $user_last_name ) {
 			// Username
 			if ( 'yes' === get_option( 'woocommerce_registration_generate_username' ) ) {
@@ -207,8 +205,10 @@ add_action( 'plugins_loaded', function() {
 			return $user_id;
 		}
 	
-		// Prevent logged in user to be updated
-		// Not running on the blocks checkout but it seems not to be necessary as only the target user is being updated and not the logged-in one
+		/**
+		 * Prevent logged in user to be updated
+		 * Not running on the blocks checkout but it seems not to be necessary as only the target user is being updated and not the logged-in one
+		**/
 		add_action( 'woocommerce_checkout_process', 'shop_as_client_woocommerce_checkout_process' );
 		function shop_as_client_woocommerce_checkout_process() {
 			if ( shop_as_client_can_checkout() ) {
@@ -220,8 +220,7 @@ add_action( 'plugins_loaded', function() {
 			}
 		}
 	
-		// Save logged in user id as order handler
-		// Classic checkout missing - Blocks alternative missing
+		/* Save logged in user id as order handler - Classic checkout missing - Blocks alternative missing */
 		add_action( 'woocommerce_checkout_update_order_meta', 'shop_as_client_woocommerce_checkout_update_order_meta', 10, 2 );
 		function shop_as_client_woocommerce_checkout_update_order_meta( $order_id, $data ) {
 			if ( shop_as_client_can_checkout() ) {
@@ -237,7 +236,7 @@ add_action( 'plugins_loaded', function() {
 			}
 		}
 	
-		// Information on the order edit screen
+		/* Information on the order edit screen */
 		add_action( 'woocommerce_admin_order_data_after_order_details', 'shop_as_client_woocommerce_admin_order_data_after_order_details' );
 		function shop_as_client_woocommerce_admin_order_data_after_order_details( $order ) {
 			if ( shop_as_client_get_order_status( $order ) ) {
@@ -273,7 +272,9 @@ add_action( 'plugins_loaded', function() {
 			}
 		}
 
-		// Thank you page warning - https://github.com/woocommerce/woocommerce/pull/38983/
+		/**
+		 * Thank you page warning - https://github.com/woocommerce/woocommerce/pull/38983/
+		**/
 		if ( version_compare( WC_VERSION, '7.8.1', '>=' ) ) {
 			add_filter( 'do_shortcode_tag', 'shop_as_client_checkout_order_received', 10, 2 );
 		}
@@ -313,7 +314,9 @@ add_action( 'plugins_loaded', function() {
 			return $output;
 		}
 
-		// Fix PRO updates to 2.3
+		/**
+		 * Fix PRO updates to 2.3 - https://ptwooplugins.com/shop-as-client-pro-add-on-not-working-after-updating-the-free-version-to-1-9-or-above-the-solution-is-here/
+		**/
 		add_action( 'plugins_loaded', function() {
 			if ( is_admin() && class_exists( 'Shop_As_Client_Pro' ) ) {
 				if ( isset( $GLOBALS['Shop_As_Client_Pro'] ) ) {
@@ -345,7 +348,7 @@ add_action( 'plugins_loaded', function() {
 	}
 }, 6 );
 
-/* HPOS Compatible - beta */
+/* HPOS Compatible */
 add_action( 'before_woocommerce_init', function() {
 	if ( version_compare( WC_VERSION, '7.1', '>=' ) && class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
 		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
