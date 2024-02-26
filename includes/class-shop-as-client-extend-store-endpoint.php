@@ -173,6 +173,9 @@ class ShopAsClient_Extend_Store_Endpoint {
 			);
 		}
 
+		$order->update_meta_data( '_billing_shop_as_client', 'yes' );
+		$order->update_meta_data( '_billing_shop_as_client_handler_user_id', get_current_user_id() );
+
 		$order->set_customer_id( $user_id );
 		$order->save();
 

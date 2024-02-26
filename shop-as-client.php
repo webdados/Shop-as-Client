@@ -222,7 +222,7 @@ add_action( 'plugins_loaded', function() {
 			}
 		}
 	
-		/* Save logged in user id as order handler - Classic checkout missing - Blocks alternative missing */
+		/* Save logged in user id as order handler - Classic checkout only - Blocks alternative missing */
 		add_action( 'woocommerce_checkout_update_order_meta', 'shop_as_client_woocommerce_checkout_update_order_meta', 10, 2 );
 		function shop_as_client_woocommerce_checkout_update_order_meta( $order_id, $data ) {
 			if ( shop_as_client_can_checkout() ) {
