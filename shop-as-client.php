@@ -49,7 +49,7 @@ add_action( 'plugins_loaded', function() {
 			return current_user_can( 'manage_options' ) || current_user_can( 'manage_woocommerce' ) || apply_filters( 'shop_as_client_allow_checkout', false );
 		}
 	
-		/* Our field - Classic checkout */
+		/* Our field - Classic checkout only - Blocks checkout in includes/class-shop-as-client-checkout-blocks.php */
 		add_filter( 'woocommerce_billing_fields' , 'shop_as_client_init_woocommerce_billing_fields', PHP_INT_MAX );
 		function shop_as_client_init_woocommerce_billing_fields( $fields ) {
 			if ( shop_as_client_can_checkout() && is_checkout() ) {
@@ -87,7 +87,7 @@ add_action( 'plugins_loaded', function() {
 			return $fields;
 		}
 	
-		/* Enqueue scripts - Classic checkout only */
+		/* Enqueue scripts - Classic checkout only - Blocks checkout in includes/class-shop-as-client-checkout-blocks.php */
 		function shop_as_client_enqueue_scripts() {
 			if (
 				function_exists( 'is_checkout' )
@@ -107,7 +107,7 @@ add_action( 'plugins_loaded', function() {
 			}
 		}
 	
-		/* Force our field defaults - Should be used for both classic and blocks checkout */
+		/* Force our field defaults - Where is this used? Should we remove this? */
 		add_filter( 'default_checkout_billing_shop_as_client', 'shop_as_client_default_checkout_billing_shop_as_client', 10, 2 );
 		function shop_as_client_default_checkout_billing_shop_as_client( $value, $input ) {
 			return apply_filters( 'shop_as_client_default_shop_as_client', 'yes' );
@@ -233,6 +233,7 @@ add_action( 'plugins_loaded', function() {
 				) {
 					$order = wc_get_order( $order_id );
 					$order->update_meta_data( '_billing_shop_as_client_handler_user_id', get_current_user_id() );
+					$order->update_meta_data( '_billing_shop_as_client_checkout', 'classic' );
 					$order->save();
 				}
 			}
