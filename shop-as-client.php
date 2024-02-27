@@ -246,7 +246,7 @@ add_action( 'plugins_loaded', function() {
 				?>
 				<p class="form-field form-field-wide">
 					<label><?php _e( 'Shop as client', 'shop-as-client' ) ?>:</label>
-					<?php _e( 'Yes', 'shop-as-client' ) ?>
+					<?php _e( 'Yes', 'shop-as-client' ); ?>
 				</p>
 				<?php
 				if ( $user_id = $order->get_meta( '_billing_shop_as_client_handler_user_id' ) ) {
@@ -268,6 +268,14 @@ add_action( 'plugins_loaded', function() {
 							printf( __( 'User %d', 'shop-as-client' ), $user_id );
 						}
 						?>
+					</p>
+					<?php
+				}
+				if ( defined( 'WP_DEBUG' ) && WP_DEBUG && $checkout = $order->get_meta( '_billing_shop_as_client_checkout' ) ) {
+					?>
+					<p class="form-field form-field-wide">
+						<label><?php _e( 'Checkout', 'shop-as-client' ) ?>:</label>
+						<?php echo $checkout; ?>
 					</p>
 					<?php
 				}
