@@ -20,6 +20,8 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 define( 'SHOPASCLIENT_REQUIRED_WC', '5.4' );
+define( 'SHOPASCLIENT_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'SHOPASCLIENT_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 /**
  * Check if WooCommerce is active
@@ -47,7 +49,7 @@ add_action( 'plugins_loaded', function() {
 			return current_user_can( 'manage_options' ) || current_user_can( 'manage_woocommerce' ) || apply_filters( 'shop_as_client_allow_checkout', false );
 		}
 	
-		/* Our field - Classic checkout */
+		/* Our field - Classic checkout only - Blocks checkout in includes/class-shop-as-client-checkout-blocks.php */
 		add_filter( 'woocommerce_billing_fields' , 'shop_as_client_init_woocommerce_billing_fields', PHP_INT_MAX );
 		function shop_as_client_init_woocommerce_billing_fields( $fields ) {
 			if ( shop_as_client_can_checkout() && is_checkout() ) {
@@ -85,7 +87,7 @@ add_action( 'plugins_loaded', function() {
 			return $fields;
 		}
 	
-		/* Enqueue scripts - Classic checkout only */
+		/* Enqueue scripts - Classic checkout only - Blocks checkout in includes/class-shop-as-client-checkout-blocks.php */
 		function shop_as_client_enqueue_scripts() {
 			if (
 				function_exists( 'is_checkout' )
@@ -105,7 +107,7 @@ add_action( 'plugins_loaded', function() {
 			}
 		}
 	
-		/* Force our field defaults - Should be used for both classic and blocks checkout */
+		/* Force our field defaults - Where is this used? Should we remove this? */
 		add_filter( 'default_checkout_billing_shop_as_client', 'shop_as_client_default_checkout_billing_shop_as_client', 10, 2 );
 		function shop_as_client_default_checkout_billing_shop_as_client( $value, $input ) {
 			return apply_filters( 'shop_as_client_default_shop_as_client', 'yes' );
@@ -220,7 +222,7 @@ add_action( 'plugins_loaded', function() {
 			}
 		}
 	
-		/* Save logged in user id as order handler - Classic checkout missing - Blocks alternative missing */
+		/* Save logged in user id as order handler - Classic checkout only - Blocks alternative missing */
 		add_action( 'woocommerce_checkout_update_order_meta', 'shop_as_client_woocommerce_checkout_update_order_meta', 10, 2 );
 		function shop_as_client_woocommerce_checkout_update_order_meta( $order_id, $data ) {
 			if ( shop_as_client_can_checkout() ) {
@@ -231,6 +233,7 @@ add_action( 'plugins_loaded', function() {
 				) {
 					$order = wc_get_order( $order_id );
 					$order->update_meta_data( '_billing_shop_as_client_handler_user_id', get_current_user_id() );
+					$order->update_meta_data( '_billing_shop_as_client_checkout', 'classic' );
 					$order->save();
 				}
 			}
@@ -243,7 +246,7 @@ add_action( 'plugins_loaded', function() {
 				?>
 				<p class="form-field form-field-wide">
 					<label><?php _e( 'Shop as client', 'shop-as-client' ) ?>:</label>
-					<?php _e( 'Yes', 'shop-as-client' ) ?>
+					<?php _e( 'Yes', 'shop-as-client' ); ?>
 				</p>
 				<?php
 				if ( $user_id = $order->get_meta( '_billing_shop_as_client_handler_user_id' ) ) {
@@ -265,6 +268,14 @@ add_action( 'plugins_loaded', function() {
 							printf( __( 'User %d', 'shop-as-client' ), $user_id );
 						}
 						?>
+					</p>
+					<?php
+				}
+				if ( defined( 'WP_DEBUG' ) && WP_DEBUG && $checkout = $order->get_meta( '_billing_shop_as_client_checkout' ) ) {
+					?>
+					<p class="form-field form-field-wide">
+						<label><?php _e( 'Checkout', 'shop-as-client' ) ?>:</label>
+						<?php echo $checkout; ?>
 					</p>
 					<?php
 				}
@@ -344,7 +355,31 @@ add_action( 'plugins_loaded', function() {
 				require_once( 'simple_order_approval_nag/simple_order_approval_nag.php' );
 			}
 		} );
-		
+
+		if ( version_compare( WC_VERSION, '8.6.0', '>=' ) ) {
+			add_action(
+				'woocommerce_blocks_loaded',
+				function () {
+					require_once __DIR__ . '/includes/class-shop-as-client-checkout-blocks.php';
+
+					add_action(
+						'woocommerce_blocks_checkout_block_registration',
+						function ( $integration_registry ) {
+							$integration_registry->register( new \ShopAsClient_Checkout_Blocks() );
+						}
+					);
+				}
+			);
+
+			add_action(
+				'woocommerce_blocks_loaded',
+				function () {
+					require_once __DIR__ . '/includes/class-shop-as-client-extend-store-endpoint.php';
+
+					( new ShopAsClient_Extend_Store_Endpoint() )->initialize();
+				}
+			);
+		}
 	}
 }, 6 );
 
