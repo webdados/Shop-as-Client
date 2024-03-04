@@ -29,6 +29,7 @@ const {
 	defaultShopAsClient,
 	defaultCreateUser,
 	showProAddOnNotice,
+	blockPosition,
 } = getSetting('ptwoo_shop_as_client_data');
 
 const Block = (props) => {
@@ -132,7 +133,11 @@ const Block = (props) => {
 		);
 	}
 
-	return <div className={className}>{Component}</div>;
+	return (
+		<div className={className} data-position={blockPosition}>
+			{Component}
+		</div>
+	);
 };
 
 export default withFilteredAttributes(attributes)(Block);
