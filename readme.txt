@@ -4,7 +4,7 @@ Tags: woocommerce, ecommerce, e-commerce, client, customer, checkout, admin, pho
 Requires at least: 5.4
 Tested up to: 6.5
 Requires PHP: 7.0
-Stable tag: 3.4
+Stable tag: 3.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -23,6 +23,7 @@ Two new fields are added to the billing checkout section, for logged in administ
 * Enter email and phone orders directly on the frontend;
 * Create orders for existing users if the email address exists on the customer database;
 * Choose either to create a new user or leave the order as if it was inserted by a guest if the email address does not exist on the customer database;
+* BETA compatibility for the WooCommerce block-based Checkout (only on the Free version for now)
 
 == PRO add-on features ==
 
@@ -35,7 +36,7 @@ In addition to all you can do with the free plugin, the [paid add-on](https://pt
 * [Developer filter](https://gist.github.com/webdados/de05d48a99063ac25f6462b1dedba2ee) to add custom fields to the automatically filled checkout details;
 * [User Switching](https://wordpress.org/plugins/user-switching/) integration to benefit the fact the customer is logged in and still use our plugin functionalities, like the payment request gateway and seller tracking. WooCommerce block-based Checkout compatible.
 * Possibility to start the order with a blank checkout form;
-* Set default values for the "Shop as client" and "Create user" fields;
+* Set default values for the “Shop as client” and “Create user” fields;
 * Option to update the customer details on his profile;
 * Get custom fields from:
 	* [WooCommerce EU VAT Assistant](https://wordpress.org/plugins/woocommerce-eu-vat-assistant/)
@@ -58,21 +59,21 @@ Already know our other WooCommerce (premium) plugins?
 
 == Installation ==
 
-* Use the included automatic install feature on your WordPress admin panel and search for "Shop as client".
+* Use the included automatic install feature on your WordPress admin panel and search for “Shop as client”.
 
 == Frequently Asked Questions ==
 
-= How to set "Shop as client" to "No" by default? =
+= How to set “Shop as client” to “No” by default? =
 
 Add [this](https://gist.github.com/webdados/fec5983b1be08dc09f290ce707a1bb44) to your (child) theme functions.php file, or use the [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin).
 
-= How to set "Create user" to "Yes" by default? =
+= How to set “Create user” to “Yes” by default? =
 
 Add [this](https://gist.github.com/webdados/6e0f3cedb315bfdb9ac258bc6e630101) to your (child) theme functions.php file, or use the [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin).
 
-= Which user roles have access to the "Shop as client" functionality? =
+= Which user roles have access to the “Shop as client” functionality? =
 
-Administrators and Shop managers can use "Shop as client" on the checkout.
+Administrators and Shop managers can use “Shop as client” on the checkout.
 Add [this](https://gist.github.com/webdados/0f1a8e5ca2cd98276a9ae73918e9b842) to your (child) theme functions.php file if you want to allow other user roles to use this functionality.
 
 = I’m giving discounts user or user role-based. Will this work? =
@@ -89,9 +90,17 @@ Yes, from version 2.1 onwards.
 
 = Is this plugin compatible with the new WooCommerce block-based Cart and Checkout? =
 
-For now, only with the [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin) and using the [User Switching](https://wordpress.org/plugins/user-switching/) integration.
+Yes, in beta only on the Free version from version 3.5 onwards.
 
-We’re working to make it 100% compatible in the near future.
+Known limitations:
+
+* Only core WooCommerce fields are saved to the customer user if the `shop_as_client_update_customer_data` filter is set to true;
+* No warning about the lack of information on the “Order Received” / “Thank You” page on WooCommerce 7.8.1 and above;
+* Report to us if you find more limitations, using the [support forum](https://wordpress.org/support/plugin/shop-as-client/);
+
+You can also use the Blocks Checkout on the [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin) using the [User Switching](https://wordpress.org/plugins/user-switching/) integration.
+
+We’re working to make it 100% compatible shortly.
 
 = Can I contribute with a translation? =
 
@@ -106,6 +115,10 @@ You can report any security bugs found in the source code of this plugin through
 Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for-woocommerce-pro-add-on-faq/)
 
 == Changelog ==
+
+= 3.5 - 2024-03-04 =
+* [NEW] BETA compatibility for the WooCommerce block-based Checkout (only on the Free version for now)
+* [DEV] Tested with WordPress 6.5-beta3-57738 and WooCommerce 8.7.0-beta.2
 
 = 3.4 - 2024-02-20 =
 * [DEV] Change plugin loading priority
@@ -134,7 +147,7 @@ Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for
 
 = 2.8 - 2023-12-15 =
 * [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Show handler and allow filtering by handler on the admin orders list, now compatible with HPOS
-* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Hide license key from shop managers (only available for users with "manage_options" capabilities, normally Administrators)
+* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Hide license key from shop managers (only available for users with “manage_options” capabilities, normally Administrators)
 * Small internal changes to better integrate with the PRO add-on and a future Funnelkit integration
 * Tested with WordPress 6.5-alpha-57189 and WooCommerce 8.4
 
@@ -153,20 +166,20 @@ Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for
 
 = 2.4 - 2023-07-25 =
 * [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): New autocomplete option to try to find users by registration first name, last name, and email if not found by WooCommerce meta.
-* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Fix a bug where the autocomplete would not be activated if the "Shop as client field default" option is set no "No"
+* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Fix a bug where the autocomplete would not be activated if the “Shop as client field default” option is set no “No”
 * Tested with WordPress 6.3-RC1-56289 and WooCommerce 8.0.0-beta.1
 
 = 2.3.1 - 2023-07-14 =
 * Fix updater for PRO add-on users
 
 = 2.3 - 2023-07-14 =
-* Information about the lack of information on the "Order Received" / "Thank You" page on WooCommerce 7.8.1 and above
-* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Show the "Order Received" / "Thank You" page on WooCommerce 7.8.1 and above
+* Warning about the lack of information on the “Order Received” / “Thank You” page on WooCommerce 7.8.1 and above
+* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Show the “Order Received” / “Thank You” page on WooCommerce 7.8.1 and above
 * Remove the InvoiceXpress banner and add the [Simple Order Approval for WooCommerce](https://ptwooplugins.com/product/simple-woocommerce-order-approval/) one
 * Fix jQuery deprecation notice
 
 = 2.2 - 2023-07-07 =
-* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Exclude some 3rd party plugin fields from being cleared from the checkout when the "Clear checkout fields" option is set to "Yes", and a new `shop_as_client_empty_checkout_field_exclusions` filter to allow developers to add more fields to the exclusions
+* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Exclude some 3rd party plugin fields from being cleared from the checkout when the “Clear checkout fields” option is set to “Yes”, and a new `shop_as_client_empty_checkout_field_exclusions` filter to allow developers to add more fields to the exclusions
 * Tested with WooCommerce 7.9.0-rc.3
 
 = 2.1 - 2023-05-13 =
@@ -199,18 +212,18 @@ Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for
 * Tested with WooCommerce 6.5.0-rc.1 and WordPress 6.0-beta2-53236
 
 = 1.7.2 - 2021-05-21 =
-* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Fix on the payment gateway: stock behaviour when setting the order "On hold"
+* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Fix on the payment gateway: stock behaviour when setting the order “On hold”
 
 = 1.7.1 - 2021-05-21 =
-* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Fix on the payment gateway: "On hold" orders should be payable
+* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Fix on the payment gateway: “On hold” orders should be payable
 
 = 1.7.0 - 2021-05-21 =
-* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): New fake payment gateway option to set the order "On hold" instead of "Pending" after the checkout
+* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): New fake payment gateway option to set the order “On hold” instead of “Pending” after the checkout
 * [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Greek translation
 * Small code fixes
 * Drop support for WooCommerce below 3.0
 * Requires PHP 7
-* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Add the "Update URI" header
+* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Add the “Update URI” header
 * Tested with WordPress 5.8-alpha-50943 and WooCommerce 5.4-beta.1
 
 = 1.6.6 - 2021-03-10 =
@@ -257,7 +270,7 @@ Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for
 * [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Get VAT number from WooCommerce EU VAT Number
 
 = 1.3.0 =
-* Hide "Create user" when "Shop as client" is set to "No"
+* Hide “Create user” when “Shop as client” is set to “No”
 * Add version number when loading the javascript functions file
 * Sync version number with the [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin)
 * Fix `Tested up to` tag
@@ -289,7 +302,7 @@ Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for
 
 = 0.4 =
 * Show the order handler on the order edit screen (Thanks Albert Amar / Israprods)
-* New `shop_as_client_allow_checkout` filter so that developers can allow other user roles to use the "Shop as client" functionality (Thanks CJ Ratliff / A+ Media for suggesting this)
+* New `shop_as_client_allow_checkout` filter so that developers can allow other user roles to use the “Shop as client” functionality (Thanks CJ Ratliff / A+ Media for suggesting this)
 * Tested with WordPress 5.2.3-alpha-45552 and WooCommerce 3.7.0-beta.1
 * WordPress 4.9 minimum requirement
 * PHP 5.6 minimum requirement
@@ -303,7 +316,7 @@ Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for
 
 = 0.2 =
 * The generated password for a new user account is now sent via email, unless `false` is returned to the `shop_as_client_email_password` filter
-* The username will be generated from the email (text before @) if the "When creating an account, automatically generate a username from the customer’s email address" WooCommerce option is checked, otherwise the whole email is used as username
+* The username will be generated from the email (text before @) if the “When creating an account, automatically generate a username from the customer’s email address” WooCommerce option is checked, otherwise the whole email is used as username
 * Bumped `WC tested up to` tag
 * Release sponsored by Albert Amar / Israprods
 
