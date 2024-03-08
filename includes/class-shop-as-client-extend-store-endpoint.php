@@ -242,6 +242,8 @@ class ShopAsClient_Extend_Store_Endpoint {
 		static::switch_customer_data( $customer, $customer_data );
 
 		$customer->save();
+
+		wc()->customer = $customer; // This is required to trigger the fields update on the checkout when the current customer data is restored ¯\_(ツ)_/¯.
 	}
 
 	/**
@@ -296,13 +298,8 @@ class ShopAsClient_Extend_Store_Endpoint {
 		}
 
 		foreach ( $data as $key => $value ) {
-			if ( $key !== 'meta' && is_callable( array( $customer, "set_$key" ) ) ) {
+			if ( is_callable( array( $customer, "set_$key" ) ) ) {
 				$customer->{"set_$key"}( $value );
-			} elseif ( $key === 'meta' ) {
-
-				foreach ( $value as $meta_key => $sub_value ) {
-					$customer->update_meta_data( $meta_key, $sub_value );
-				}
 			}
 		}
 	}
