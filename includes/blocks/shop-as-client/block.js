@@ -45,6 +45,16 @@ const Block = (props) => {
 	} = useDispatch(CHECKOUT_STORE_KEY);
 
 	useEffect(() => {
+		extensionCartUpdate({
+			namespace: EXTENSION_NAMESPACE,
+			data: {
+				resetCustomerData: true,
+			},
+		});
+		return () => {};
+	}, []);
+
+	useEffect(() => {
 		disablePlaceOrderButton();
 		extensionCartUpdate({
 			namespace: EXTENSION_NAMESPACE,

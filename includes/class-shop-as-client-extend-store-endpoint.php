@@ -99,6 +99,10 @@ class ShopAsClient_Extend_Store_Endpoint {
 			wc()->session->set_customer_session_cookie( true );
 		}
 
+		if ( ! empty( $data['resetCustomerData'] ) ) {
+			static::restore_customer_data();
+		}
+
 		// Persist "Shop As Client" option.
 		$shop_as_client = isset( $data['shopAsClient'] ) ? $data['shopAsClient'] : null;
 		wc()->session->set( $this->get_name() . '_shop_as_client', $shop_as_client );
