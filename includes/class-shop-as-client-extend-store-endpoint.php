@@ -66,7 +66,7 @@ class ShopAsClient_Extend_Store_Endpoint {
 			)
 		);
 
-		add_action( 'woocommerce_store_api_checkout_order_processed', array( $this, 'process_order' ) );
+		add_action( 'woocommerce_store_api_checkout_order_processed', array( $this, 'process_order' ), 100 );
 	}
 
 	/**
