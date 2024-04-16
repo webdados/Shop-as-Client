@@ -50,3 +50,6 @@ Thumbs.db
 
 # ZIP util
 createzip.command
+
+# Code Workspace
+shop-as-client.code-workspace

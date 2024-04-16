@@ -23,6 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 define( 'SHOPASCLIENT_REQUIRED_WC', '5.4' );
 define( 'SHOPASCLIENT_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SHOPASCLIENT_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'SHOPASCLIENT_PRO_OUT_LINK', 'https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=' . rawurlencode( esc_url( home_url( '/' ) ) ) . '&amp;utm_medium=link&amp;utm_campaign=shop_as_client_plugin' );
 
 /**
  * Check if WooCommerce is active
@@ -42,6 +43,136 @@ add_action( 'plugins_loaded', function() {
 		function shop_as_client_init() {
 			load_plugin_textdomain( 'shop-as-client' );
 			add_action( 'wp_enqueue_scripts', 'shop_as_client_enqueue_scripts' );
+		}
+
+		/* Fake settings link */
+		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'shop_as_client_add_settings_link' );
+		function shop_as_client_add_settings_link( $links ) {
+			$action_links = array(
+				sprintf(
+					'<a href="admin.php?page=wc-settings&amp;tab=account#shop_as_client_pro_license_key">%s</a>',
+					__( 'Settings', 'shop-as-client' )
+				),
+			);
+			return array_merge( $links, $action_links );
+		}
+		add_filter( 'woocommerce_account_settings', 'shop_as_client_woocommerce_account_settings' );
+		function shop_as_client_woocommerce_account_settings( $settings ) {
+			$our_settings = array();
+			if ( ! defined( 'SHOPASCLIENT_PRO_PLUGIN_FILE' ) ) {
+				$description = sprintf(
+					__( 'Available on the %sPRO Add-on%s', 'shop-as-client' ),
+					'<a href="' . esc_url( SHOPASCLIENT_PRO_OUT_LINK ) . '">',
+					'</a>'
+				);
+				$our_settings = array(
+					array(
+						'title'       => __( 'Shop as Client', 'shop-as-client' ) . sprintf(
+							' (Free %s)',
+							SHOPASCLIENT_VERSION
+						),
+						'type'        => 'title',
+						'id'          => 'shop_as_client_options',
+					),
+					// Disabled fields here (shop as client default, create user field default, search on orders, update customer, clear checkout fields, Handler)
+					array(
+						'title'             => __( 'Shop as client field default', 'shop-as-client' ),
+						'id'                => 'shop_as_client_pro_shop_as_client_default',
+						'type'              => 'select',
+						'options'           => array(
+							'yes' => __( 'Yes', 'shop-as-client' ),
+							'no'  => __( 'No', 'shop-as-client' ),
+						),
+						'default'	        => 'yes',
+						'desc'              => $description,
+						'custom_attributes' => array(
+							'disabled'  => 'disabled',
+						),
+					),
+					array(
+						'title'             => __( 'Create user field default', 'shop-as-client' ),
+						'id'                => 'shop_as_client_pro_create_user_default',
+						'type'              => 'select',
+						'options'           => array(
+							'yes' => __( 'Yes', 'shop-as-client' ),
+							'no'  => __( 'No', 'shop-as-client' ),
+						),
+						'default'	        => 'yes',
+						'desc'              => $description,
+						'custom_attributes' => array(
+							'disabled'  => 'disabled',
+						),
+					),
+					array(
+						'title'             => __( 'Search on orders', 'shop-as-client' ),
+						'desc'              => __( 'By default, the search is only performed on registered users by their registration and billing email, but if you enable this option it will also be done on orders (if not found as user), so you can get data from guest customers.', 'shop-as-client' ) . '<br/>' . $description,
+						'id'                => 'shop_as_client_pro_search_orders',
+						'type'              => 'select',
+						'options'           => array(
+							'yes' => __( 'Yes', 'shop-as-client' ),
+							'no'  => __( 'No', 'shop-as-client' ),
+						),
+						'default'	        => 'yes',
+						'custom_attributes' => array(
+							'disabled'  => 'disabled',
+						),
+					),
+					array(
+						'title'             => __( 'Update customer', 'shop-as-client' ),
+						'desc'              => __( 'Update the customer details on his profile', 'shop-as-client' ) . '<br/>' . $description,
+						'id'                => 'shop_as_client_pro_update_customer',
+						'default'           => '',
+						'type'              => 'select',
+						'options'           => array(
+							'yes' => __( 'Yes', 'shop-as-client' ),
+							'no'  => __( 'No', 'shop-as-client' ),
+						),
+						'default'	        => 'yes',
+						'custom_attributes' => array(
+							'disabled'  => 'disabled',
+						),
+					),
+					array(
+						'title'             => __( 'Clear checkout fields', 'shop-as-client' ),
+						'desc'              => (
+							__( 'Default all checkout fields to blank for Administrators and Shop Managers', 'shop-as-client' )
+							.
+							'<br/>'
+							.
+							__( 'Only on the classic checkout', 'shop-as-client' ) . '<br/>' . $description
+						),
+						'id'                => 'shop_as_client_pro_empty_checkout',
+						'type'              => 'select',
+						'options'           => array(
+							'yes' => __( 'Yes', 'shop-as-client' ),
+							'no'  => __( 'No', 'shop-as-client' ),
+						),
+						'default'	        => 'yes',
+						'custom_attributes' => array(
+							'disabled'  => 'disabled',
+						),
+					),
+					array(
+						'title'             => __( 'Handler on orders list', 'shop-as-client' ),
+						'desc'              => __( 'Add a column with the order handler and allow filtering by handler on the admin orders list', 'shop-as-client' ) . '<br/>' . $description,
+						'id'                => 'shop_as_client_pro_handler_order_list',
+						'type'              => 'select',
+						'options'           => array(
+							'yes' => __( 'Yes', 'shop-as-client' ),
+							'no'  => __( 'No', 'shop-as-client' ),
+						),
+						'default'	        => 'yes',
+						'custom_attributes' => array(
+							'disabled'  => 'disabled',
+						),
+					),
+					array(
+						'type' => 'sectionend',
+						'id'   => 'shop_as_client_options',
+					),
+				);
+			}
+			return array_merge( $settings, $our_settings );
 		}
 	
 		/* Can checkout with shop as client? - Should be used for both classic and blocks checkout */
@@ -101,7 +232,7 @@ add_action( 'plugins_loaded', function() {
 				wp_localize_script( 'shop-as-client', 'shop_as_client', array(
 					'txt_pro' => 
 					sprintf(
-						'<p><a href="https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/" target="_blank">%s</a></p>',
+						'<p><a href="' . esc_url( SHOPASCLIENT_PRO_OUT_LINK ) . '" target="_blank">%s</a></p>',
 						__( 'Do you want to load the customer details automatically?<br/>Get the PRO add-on!', 'shop-as-client' )
 					)
 				) );
@@ -317,7 +448,7 @@ add_action( 'plugins_loaded', function() {
 				ob_start();
 				?>
 				<div class="woocommerce-error">
-					<a href="https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/" class="button wc-forward" target="_blank">
+					<a href="<?php echo esc_url( SHOPASCLIENT_PRO_OUT_LINK ); ?>" class="button wc-forward" target="_blank">
 						<?php _e( 'Get the PRO add-on to fix this', 'shop-as-client' ); ?>
 					</a>
 					<?php _e( '<strong>Shop as client</strong><br/>Since WooCommerce 7.8.1 only the order owner/customer is able to see the "Order received" details.', 'shop-as-client' ); ?>
