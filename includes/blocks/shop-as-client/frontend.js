@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const moveBlock = () => {
 		const block = document.querySelector(
-			'.wp-block-woocommerce-ptwoo-shop-as-client'
+			'.wp-block-woocommerce-ptwoo-shop-as-client-block'
 		);
 		if (block) {
 			const actionsBlock = document.querySelector(
