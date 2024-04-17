@@ -2,9 +2,9 @@
 Contributors: webdados, ptwooplugins 
 Tags: woocommerce, ecommerce, e-commerce, client, customer, checkout, admin, phone order, webdados
 Requires at least: 5.4
-Tested up to: 6.5
+Tested up to: 6.6
 Requires PHP: 7.0
-Stable tag: 3.5.1
+Stable tag: 3.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -23,7 +23,7 @@ Two new fields are added to the billing checkout section, for logged in administ
 * Enter email and phone orders directly on the frontend;
 * Create orders for existing users if the email address exists on the customer database;
 * Choose either to create a new user or leave the order as if it was inserted by a guest if the email address does not exist on the customer database;
-* BETA compatibility for the WooCommerce block-based Checkout (only on the Free version for now)
+* Compatibility for the WooCommerce block-based Checkout
 
 == PRO add-on features ==
 
@@ -34,7 +34,7 @@ In addition to all you can do with the free plugin, the [paid add-on](https://pt
 * Autocomplete feature while typing the customer email, first name, last name, company or phone number
 * Show handler and allow filtering by handler on the admin orders list
 * [Developer filter](https://gist.github.com/webdados/de05d48a99063ac25f6462b1dedba2ee) to add custom fields to the automatically filled checkout details;
-* [User Switching](https://wordpress.org/plugins/user-switching/) integration to benefit the fact the customer is logged in and still use our plugin functionalities, like the payment request gateway and seller tracking. WooCommerce block-based Checkout compatible.
+* [User Switching](https://wordpress.org/plugins/user-switching/) integration to benefit the fact the customer is logged in and still use our plugin functionalities, like the payment request gateway and seller tracking.
 * Possibility to start the order with a blank checkout form;
 * Set default values for the “Shop as client” and “Create user” fields;
 * Option to update the customer details on his profile;
@@ -90,17 +90,14 @@ Yes, from version 2.1 onwards.
 
 = Is this plugin compatible with the new WooCommerce block-based Cart and Checkout? =
 
-Yes, in beta only on the Free version from version 3.5 onwards.
+Yes, on the Free version from version 3.5 onwards and on the [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin) from version 3.6 onwards.
 
 Known limitations:
 
 * Only core WooCommerce fields are saved to the customer user, and not custom or 3rd party fields, if the `shop_as_client_update_customer_data` filter is set to `true`;
 * No warning about the lack of information on the “Order Received” / “Thank You” page on WooCommerce 7.8.1 and above;
+* PRO add-on: The `shop_as_client_pro_customer_data` filter does not work;
 * Report to us if you find more limitations, using the [support forum](https://wordpress.org/support/plugin/shop-as-client/);
-
-You can also use the Blocks Checkout on the [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin) using the [User Switching](https://wordpress.org/plugins/user-switching/) integration.
-
-We’re working to make it 100% compatible shortly.
 
 = Can I contribute with a translation? =
 
@@ -115,6 +112,11 @@ You can report any security bugs found in the source code of this plugin through
 Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for-woocommerce-pro-add-on-faq/)
 
 == Changelog ==
+
+= 3.6 - 2024-04-17 =
+* [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Compatibility for the WooCommerce block-based Checkout
+* [DEV] Several fixes on the blocks integration for compatibility with the PRO add-on
+* [DEV] Tested with WordPress 6.6-alpha-58011 and WooCommerce 8.8.1
 
 = 3.5.1 - 2024-04-05 =
 * [FIX] Avoid fatal error when trying to load the blocks integration on older WooCommerce versions
