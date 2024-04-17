@@ -113,6 +113,9 @@ Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for
 
 == Changelog ==
 
+= 3.6.1 - 2024-04-17 =
+* [FIX] Fatal error on the classic checkout page
+
 = 3.6 - 2024-04-17 =
 * [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Compatibility for the WooCommerce block-based Checkout
 * [DEV] Several fixes on the blocks integration for compatibility with the PRO add-on
