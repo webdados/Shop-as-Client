@@ -1,6 +1,6 @@
 === Shop as Client for WooCommerce ===
 Contributors: webdados, ptwooplugins 
-Tags: woocommerce, ecommerce, e-commerce, client, customer, checkout, admin, phone order, webdados
+Tags: woocommerce, ecommerce, customer, checkout
 Requires at least: 5.4
 Tested up to: 6.6
 Requires PHP: 7.0
@@ -8,7 +8,7 @@ Stable tag: 3.7
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Allows a WooCommerce store Administrator or Shop Manager to use the frontend and assign a new order to a registered or new customer. Useful for phone or email orders.
+Allows WooCommerce store Administrators and Shop Managers to use the frontend and assign a new phone or email order to a registered or new customer.
 
 == Description ==
 
@@ -116,6 +116,7 @@ Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for
 = 3.7 - 2024-09-27 =
 * [FIX] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Make sure OrderUtil is only performed if WooCommerce 7.1 or above is being used
 * [DEV] Tested with WordPress 6.7-alpha-59098 and WooCommerce 9.3.3
+* **WARNING: We will soon drop support for WooCommerce below 7.1**
 
 = 3.6.1 - 2024-04-17 =
 * [FIX] Fatal error on the classic checkout page
