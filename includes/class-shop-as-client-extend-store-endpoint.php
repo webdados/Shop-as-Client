@@ -309,6 +309,10 @@ class ShopAsClient_Extend_Store_Endpoint {
 			return;
 		}
 
+		if ( ! isset( $data ) ) {
+			return;
+		}
+
 		foreach ( $data as $key => $value ) {
 			if ( is_callable( array( $customer, "set_$key" ) ) ) {
 				$customer->{"set_$key"}( $value );
