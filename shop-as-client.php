@@ -35,13 +35,20 @@ add_action( 'plugins_loaded', function() {
 		if ( ! function_exists( 'get_plugin_data' ) ) {
 			include ABSPATH . '/wp-admin/includes/plugin.php';
 		}
-		$temp_plugin_data = get_plugin_data( __FILE__ );
+		$temp_plugin_data = get_plugin_data( __FILE__, false, false );
 		define( 'SHOPASCLIENT_VERSION', $temp_plugin_data['Version'] );
 	
-		/* Languages */
+		/* Languages and scripts */
 		add_action( 'plugins_loaded', 'shop_as_client_init', 7 );
 		function shop_as_client_init() {
-			load_plugin_textdomain( 'shop-as-client' );
+			// Load translations - On init (after after_setup_theme) since WordPress 6.7 to avoid load_plugin_textdomain notices
+			add_action(
+				'init',
+				function () {
+					load_plugin_textdomain( 'shop-as-client' );
+				}
+			);
+			// Load scripts
 			add_action( 'wp_enqueue_scripts', 'shop_as_client_enqueue_scripts' );
 		}
 
