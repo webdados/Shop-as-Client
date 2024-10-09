@@ -169,7 +169,6 @@ class ShopAsClient_Extend_Store_Endpoint {
 
 			$user_query = new \WP_User_Query(
 				array(
-					'exclude'    => array( $order->get_customer_id() ),
 					'meta_query' => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 						array(
 							'key'     => 'billing_email',
