@@ -183,9 +183,14 @@ add_action( 'plugins_loaded', function() {
 		}
 	
 		/* Can checkout with shop as client? - Should be used for both classic and blocks checkout */
-		function shop_as_client_can_checkout() {
-			// The shop_as_client_allow_checkout filter can be used to allow other user roles to use this functionality - Use carefully and wisely
-			return current_user_can( 'manage_options' ) || current_user_can( 'manage_woocommerce' ) || apply_filters( 'shop_as_client_allow_checkout', false );
+		function shop_as_client_can_checkout( $user_id = null ) {
+			if ( is_null( $user_id ) ) {
+				// The shop_as_client_allow_checkout filter can be used to allow other user roles to use this functionality - Use carefully and wisely
+				return current_user_can( 'manage_options' ) || current_user_can( 'manage_woocommerce' ) || apply_filters( 'shop_as_client_allow_checkout', false, null );
+			} elseif ( intval( $user_id ) > 0 ) {
+				return user_can( intval( $user_id ), 'manage_options' ) || user_can( intval( $user_id ), 'manage_woocommerce' ) || apply_filters( 'shop_as_client_allow_checkout', false, $user_id );
+			}
+			return false;
 		}
 	
 		/* Our field - Classic checkout only - Blocks checkout in includes/class-shop-as-client-checkout-blocks.php */

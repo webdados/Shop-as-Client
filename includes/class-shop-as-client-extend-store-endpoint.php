@@ -267,7 +267,10 @@ class ShopAsClient_Extend_Store_Endpoint {
 	public static function get_customer_data_by_user_id( $user_id ) {
 		$customer = new \WC_Customer( $user_id );
 
-		$customer_data = array();
+		$customer_data = array(
+			'customer_id' => $customer->get_id(),
+		);
+
 		foreach ( static::$default_checkout_keys as $key ) {
 			if ( is_callable( array( $customer, "get_$key" ) ) ) {
 				$customer_data[ $key ] = $customer->{"get_$key"}();
@@ -286,7 +289,10 @@ class ShopAsClient_Extend_Store_Endpoint {
 	public static function get_customer_data_by_order_id( $order_id ) {
 		$order = new \WC_Order( $order_id );
 
-		$customer_data = array();
+		$customer_data = array(
+			'customer_id' => $order->get_customer_id(),
+		);
+
 		foreach ( static::$default_checkout_keys as $key ) {
 			if ( is_callable( array( $order, "get_$key" ) ) ) {
 				$customer_data[ $key ] = $order->{"get_$key"}();
