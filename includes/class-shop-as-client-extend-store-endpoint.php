@@ -167,23 +167,24 @@ class ShopAsClient_Extend_Store_Endpoint {
 			$user_id = $user->ID;
 		} else {
 
-			$user_query = new \WP_User_Query(
-				array(
-					'meta_query' => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
-						array(
-							'key'     => 'billing_email',
-							'value'   => $user_email,
-							'compare' => '=',
-						),
+			$query_args = array(
+				'fields'     => 'ID',
+				'exclude'    => get_current_user_id(), // Exclude the current user.
+				'meta_query' => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+					array(
+						'key'     => 'billing_email',
+						'value'   => $user_email,
+						'compare' => '=',
 					),
-				)
+				),
 			);
 
-			$users = $user_query->get_results();
+			$query    = new \WP_User_Query( $query_args );
+			$user_ids = $query->get_results();
 
-			if ( ! empty( $users ) ) {
-				$user    = reset( $users );
-				$user_id = $user->ID;
+			if ( ! empty( $user_ids ) ) {
+				$user_id = reset( $user_ids );
+				$user_id = absint( $user_id );
 			} elseif ( $create_user ) {
 				$user_id = shop_as_client_create_customer(
 					$user_email,
