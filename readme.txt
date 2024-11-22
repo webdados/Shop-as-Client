@@ -113,7 +113,7 @@ Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for
 
 == Changelog ==
 
-= 4.0 - soon =
+= 4.0 - 2024-11-22 =
 [NEW] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Better User Switching integration: Allows switching after searching and finding a customer on the checkout, and transferring the current cart to the customer user, thus allowing the use of specific customer account functionalities, for example, use points from the "Points and Rewards" plugin, and then switch back to the original Administrator or Shop Manager user on the order received (thank you) page
 [FIX] Order as a guest on the blocks checkout
 [FIX] Load text domain at the right time to avoid PHP notices on WordPress 6.7 and above
