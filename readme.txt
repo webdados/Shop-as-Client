@@ -1,10 +1,10 @@
 === Shop as Client for WooCommerce ===
 Contributors: webdados, ptwooplugins 
-Tags: woocommerce, ecommerce, customer, checkout
-Requires at least: 5.4
-Tested up to: 6.6
+Tags: ecommerce, customer, checkout, phone order, mail order
+Requires at least: 5.8
+Tested up to: 6.7
 Requires PHP: 7.0
-Stable tag: 3.7
+Stable tag: 4.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -112,6 +112,15 @@ You can report any security bugs found in the source code of this plugin through
 Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for-woocommerce-pro-add-on-faq/)
 
 == Changelog ==
+
+= 4.0 - soon =
+[NEW] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Better User Switching integration: Allows switching after searching and finding a customer on the checkout, and transferring the current cart to the customer user, thus allowing the use of specific customer account functionalities, for example, use points from the "Points and Rewards" plugin, and then switch back to the original Administrator or Shop Manager user on the order received (thank you) page
+[FIX] Order as a guest on the blocks checkout
+[FIX] Load text domain at the right time to avoid PHP notices on WordPress 6.7 and above
+[FIX] Several minor fixes, including PHP notices and translation strings
+[DEV] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): License validation on websites with WPML set to have different domains per language
+[DEV] Requires WordPress 5.8 and WooCommerce 7.1
+[DEV] Tested with WordPress 6.8-alpha-59448 and WooCommerce 9.5.0-beta.1
 
 = 3.7 - 2024-09-27 =
 * [FIX] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Make sure OrderUtil is only performed if WooCommerce 7.1 or above is being used

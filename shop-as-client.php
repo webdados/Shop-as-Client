@@ -1,26 +1,26 @@
 <?php
 /**
- * Plugin Name: Shop as Client for WooCommerce
- * Plugin URI: https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/
- * Description: Allows a WooCommerce Store Administrator or Shop Manager to use the frontend and assign a new order to a registered or new customer. Useful for phone or email orders.
- * Version: 3.7
- * Author: PT Woo Plugins (by Webdados)
- * Author URI: https://ptwooplugins.com/
- * Text Domain: shop-as-client
- * Domain Path: /languages
- * Requires at least: 5.4
- * Tested up to: 6.6
- * Requires PHP: 7.0
- * WC requires at least: 5.4
- * WC tested up to: 9.3
- * Requires Plugins: woocommerce
+ * Plugin Name:          Shop as Client for WooCommerce
+ * Plugin URI:           https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/
+ * Description:          Allows a WooCommerce Store Administrator or Shop Manager to use the frontend and assign a new order to a registered or new customer. Useful for phone or email orders.
+ * Version:              4.0
+ * Author:               PT Woo Plugins (by Webdados)
+ * Author URI:           https://ptwooplugins.com/
+ * Text Domain:          shop-as-client
+ * Domain Path:          /languages
+ * Requires at least:    5.8
+ * Tested up to:         6.7
+ * Requires PHP:         7.0
+ * WC requires at least: 7.1
+ * WC tested up to:      9.4
+ * Requires Plugins:     woocommerce
 **/
 
 /* WooCommerce CRUD ready */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'SHOPASCLIENT_REQUIRED_WC', '5.4' );
+define( 'SHOPASCLIENT_REQUIRED_WC', '7.1' );
 define( 'SHOPASCLIENT_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SHOPASCLIENT_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'SHOPASCLIENT_PRO_OUT_LINK', 'https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=' . rawurlencode( esc_url( home_url( '/' ) ) ) . '&amp;utm_medium=link&amp;utm_campaign=shop_as_client_plugin' );
