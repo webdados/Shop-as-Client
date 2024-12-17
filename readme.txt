@@ -4,7 +4,7 @@ Tags: ecommerce, customer, checkout, phone order, mail order
 Requires at least: 5.8
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 4.0
+Stable tag: 5.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -39,6 +39,7 @@ In addition to all you can do with the free plugin, the [paid add-on](https://pt
 * Set default values for the “Shop as client” and “Create user” fields;
 * Option to update the customer details on his profile;
 * Get custom fields from:
+	* [Simple Custom Fields for WooCommerce Blocks Checkout](https://ptwooplugins.com/product/simple-custom-fields-for-woocommerce-blocks-checkout/)
 	* [WooCommerce EU VAT Assistant](https://wordpress.org/plugins/woocommerce-eu-vat-assistant/)
 	* [WooCommerce EU VAT Number](https://woocommerce.com/products/eu-vat-number/)
 	* [Invoicing with InvoiceXpress for WooCommerce](https://invoicewoo.com/)
@@ -54,8 +55,12 @@ Try the PRO add-on for free [here](https://ptwooplugins.com/product/shop-as-clie
 
 Already know our other WooCommerce (premium) plugins?
 
-* [Taxonomy/Term and Role based Discounts for WooCommerce](https://ptwooplugins.com/product/taxonomy-term-and-role-based-discounts-for-woocommerce-pro-add-on/) - Easily create bulk discount rules for products based on any taxonomy terms (built-in or custom)
+* [Advanced Coupon Restrictions for WooCommerce](https://ptwooplugins.com/product/advanced-coupon-restrictions-for-woocommerce/) - Create coupons for any Product Taxonomy, User details, and Order destination.
+* [Simple Custom Fields for WooCommerce Blocks Checkout](https://ptwooplugins.com/product/simple-custom-fields-for-woocommerce-blocks-checkout/) - Add custom fields to the new WooCommerce Block-based Checkout
 * [Simple WooCommerce Order Approval](https://ptwooplugins.com/product/simple-woocommerce-order-approval/) - The hassle-free solution for WooCommerce order approval before payment
+* [Taxonomy/Term and Role based Discounts for WooCommerce](https://ptwooplugins.com/product/taxonomy-term-and-role-based-discounts-for-woocommerce-pro-add-on/) - Easily create bulk discount rules for products based on any taxonomy terms (built-in or custom)
+* [DPD / SEUR / Geopost Pickup and Lockers network for WooCommerce](https://ptwooplugins.com/product/dpd-seur-geopost-pickup-and-lockers-network-for-woocommerce/) - Deliver your WooCommerce orders on the DPD and SEUR Pickup network of Parcelshops and Lockers in 21 European countries
+* [Auto Cancel WooCommerce On-hold Orders](https://ptwooplugins.com/product/auto-cancel-woocommerce-on-hold-orders/) - Automatically cancel WooCommerce “On-hold” orders after a determined period of time.
 
 == Installation ==
 
@@ -113,19 +118,27 @@ Check out the [PRO add-on FAQs](https://ptwooplugins.com/faqs/shop-as-client-for
 
 == Changelog ==
 
+= 5.0 - 2025-12-17 =
+* [NEW] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Integration with [Simple Custom Fields for WooCommerce Blocks Checkout](https://ptwooplugins.com/product/simple-custom-fields-for-woocommerce-blocks-checkout/): autocomplete fields set by that plugin
+* [TWEAK] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Improve integration with [Invoicing with InvoiceXpress for WooCommerce](https://invoicewoo.com/)
+* [TWEAK] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Use the customer billing name by default for the user switching link
+* [DEV] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Removed the non-autocomplete search on the classic checkout (deprecated on 3.3)
+* [DEV] Apply WordPress Coding Standards
+* [DEV] Tested with WordPress 6.8-alpha-59521, WooCommerce 9.5.0, and User Switching 1.9.1
+
 = 4.0 - 2024-11-22 =
-[NEW] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Better User Switching integration: Allows switching after searching and finding a customer on the checkout, and transferring the current cart to the customer user, thus allowing the use of specific customer account functionalities, for example, use points from the "Points and Rewards" plugin, and then switch back to the original Administrator or Shop Manager user on the order received (thank you) page
-[FIX] Order as a guest on the blocks checkout
-[FIX] Load text domain at the right time to avoid PHP notices on WordPress 6.7 and above
-[FIX] Several minor fixes, including PHP notices and translation strings
-[DEV] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): License validation on websites with WPML set to have different domains per language
-[DEV] Requires PHP 7.4, WordPress 5.8, and WooCommerce 7.1
-[DEV] Tested with WordPress 6.8-alpha-59448, WooCommerce 9.5.0-beta.1, and User Switching 1.9.0
+* [NEW] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Better User Switching integration: Allows switching after searching and finding a customer on the checkout, and transferring the current cart to the customer user, thus allowing the use of specific customer account functionalities, for example, use points from the “Points and Rewards” plugin, and then switch back to the original Administrator or Shop Manager user on the order received (thank you) page
+* [FIX] Order as a guest on the blocks checkout
+* [FIX] Load text domain at the right time to avoid PHP notices on WordPress 6.7 and above
+* [FIX] Several minor fixes, including PHP notices and translation strings
+* [DEV] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): License validation on websites with WPML set to have different domains per language
+* [DEV] Requires PHP 7.4, WordPress 5.8, and WooCommerce 7.1
+* [DEV] Tested with WordPress 6.8-alpha-59448, WooCommerce 9.5.0-beta.1, and User Switching 1.9.0
 
 = 3.7 - 2024-09-27 =
 * [FIX] [PRO add-on](https://ptwooplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Make sure OrderUtil is only performed if WooCommerce 7.1 or above is being used
 * [DEV] Tested with WordPress 6.7-alpha-59098 and WooCommerce 9.3.3
-* **WARNING: We will soon drop support for WooCommerce below 7.1**
+* WARNING: We will soon drop support for WooCommerce below 7.1
 
 = 3.6.1 - 2024-04-17 =
 * [FIX] Fatal error on the classic checkout page
