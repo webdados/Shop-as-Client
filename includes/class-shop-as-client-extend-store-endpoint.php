@@ -1,4 +1,7 @@
 <?php
+/**
+ * Class for extending the WooCommerce Store API
+ */
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
