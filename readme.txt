@@ -118,7 +118,7 @@ Check out the [PRO add-on FAQs](https://nakedcatplugins.com/faqs/shop-as-client-
 
 == Changelog ==
 
-= 6.7 - 2025-11-20 =
+= 6.7 - 2025-11-21 =
 * [FIX] PHP error in the rare eventuality of the Free plugin being deactivated, with the PRO add-on still active
 
 = 6.6 - 2025-11-20 =
