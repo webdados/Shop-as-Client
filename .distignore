@@ -4,7 +4,9 @@ __MACOSX
 
 # Tooling files
 .git/*
+.git
 .github/*
+.github
 .svn/*
 .distignore
 .gitignore
@@ -25,3 +27,5 @@ createzip.command
 _todo.txt
 includes/blocks/*
 shop-as-client.code-workspace
+.wordpress-org/*
+.wordpress-org
