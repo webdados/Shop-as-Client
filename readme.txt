@@ -4,7 +4,7 @@ Tags: ecommerce, customer, checkout, phone order, mail order
 Requires at least: 5.8
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 6.8.2
+Stable tag: 7.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -31,7 +31,8 @@ In addition to all you can do with the free plugin, the [paid add-on](https://na
 
 * Search customer by email address (on the users’ table and optionally also previous orders) and automatically fill in the checkout details;
 * Fake payment gateway that allows administrators and shop managers to finalize the order and ask for the order payment by sending the customer a payment link via email;
-* Autocomplete feature while typing the customer email, first name, last name, company or phone number
+* Autocomplete feature while typing the customer email, first name, last name, company, or phone number
+* Allow changing product price on the cart, for example, to offer a special deal on the current order
 * Show handler and allow filtering by handler on the admin orders list
 * [Developer filter](https://gist.github.com/webdados/de05d48a99063ac25f6462b1dedba2ee) to add custom fields to the automatically filled checkout details;
 * [User Switching](https://wordpress.org/plugins/user-switching/) integration to benefit the fact the customer is logged in and still use our plugin functionalities, like the payment request gateway and seller tracking.
@@ -118,12 +119,16 @@ Check out the [PRO add-on FAQs](https://nakedcatplugins.com/faqs/shop-as-client-
 
 == Changelog ==
 
+= 7.0 - 2025-12-30 =
+* [NEW] [PRO add-on](https://nakedcatplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): 
+* [DEV] Tested with WordPress 7.0-alpha-61413 and WooCommerce 10.4.0
+
 = 6.8.2 - 2025-12-10 =
 * [FIX] Checkbox margins on the blocks checkout
 * [DEV] [PRO add-on](https://nakedcatplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): New updater v12
 * [DEV] Remove unnecessary folders from automatic deployment from GitHub to WordPress.org
 * [DEV] Remove broken version 6.8 - Sorry for the mess
-* [DEV] Tested with WordPress 7.0-alpha-61365 and WooCommerce 10.4.0
+* [DEV] Tested with WordPress 7.0-alpha-61365 and WooCommerce 10.4.3
 
 = 6.7 - 2025-11-21 =
 * [FIX] PHP error in the rare eventuality of the Free plugin being deactivated, with the PRO add-on still active
