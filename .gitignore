@@ -53,3 +53,6 @@ createzip.command
 
 # Code Workspace
 shop-as-client.code-workspace
+.editorconfig
+
+_todo.txt
