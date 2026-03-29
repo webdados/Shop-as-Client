@@ -1,58 +1,141 @@
-=== Shop as Client for WooCommerce ===
+=== Shop as Client for WooCommerce - Manual, Phone & Email Orders ===
 Contributors: nakedcatplugins, webdados 
 Tags: ecommerce, customer, checkout, phone order, mail order
 Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 7.4
+Stable tag: 7.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Allows WooCommerce store Administrators and Shop Managers to use the frontend and assign a new phone or email order to a registered or new customer.
+Create manual, phone, POS, or email orders in WooCommerce. Shop admins and staff can place customer orders directly from the frontend checkout.
 
 == Description ==
 
-Allows a WooCommerce store Administrator or Shop Manager to use the frontend and assign a new order to a registered or new customer, taking advantage of all the frontend functionalities that may not be available on the backend, which can be very useful for phone or email orders.
+Create manual orders in WooCommerce directly from the frontend checkout. Ideal for phone orders, email orders, POS or in-store purchases, sales representatives, and customer service teams placing orders on behalf of customers.
 
-The order will automatically be assigned to a registered customer if the billing email matches. If no registered user is found, the shop manager can either create a new user or leave the order as if a guest inserted it.
+=== Manual, phone & email orders made easy ===
 
-Two new fields have been added to the billing checkout section for logged-in administrators and shop managers.
+Do you take orders by phone, email, in-store, or through sales representatives visiting customers?
 
-== Features ==
+Do your staff need to place orders on behalf of customers?
 
-* Enter email and phone orders directly on the frontend;
-* Create orders for existing users if the email address exists on the customer database;
-* Choose either to create a new user or leave the order as if a guest inserted it if the email address does not exist in the customer database;
-* Compatibility for the WooCommerce block-based Checkout
+**Shop as Client for WooCommerce** allows store administrators and shop managers to create **manual orders directly from the frontend checkout**, using the exact same purchasing experience customers use.
 
-== PRO add-on features ==
+==== Perfect for: ====
 
-In addition to all you can do with the free plugin, the [paid add-on](https://nakedcatplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin) offers you several additional features:
+* Manual order creation
+* Phone orders
+* Email orders
+* In-store or POS purchases
+* Customer service assisted orders
+* B2B sales teams
+* Sales representatives creating orders for clients
 
-* Search customer by email address (on the users’ table and optionally also previous orders) and automatically fill in the checkout details;
-* Fake payment gateway that allows administrators and shop managers to finalize the order and ask for the order payment by sending the customer a payment link via email;
-* Autocomplete feature while typing the customer email, first name, last name, company, or phone number
-* Allow changing product price on the cart, for example, to offer a special deal on the current order (only on classic checkout for now), with compatibility with WooPayments’ multi-currency feature
-* Show handler and allow filtering by handler on the admin orders list
-* [Developer filter](https://gist.github.com/webdados/de05d48a99063ac25f6462b1dedba2ee) to add custom fields to the automatically filled checkout details;
-* [User Switching](https://wordpress.org/plugins/user-switching/) integration to benefit from the fact that the customer is logged in and still use our plugin functionalities, like the payment request gateway and seller tracking.
-* Possibility to start the order with a blank checkout form;
-* Set default values for the “Shop as client” and “Create user” fields;
-* Option to update the customer details on his profile;
+Instead of using the limited WooCommerce admin order screen, your staff can simply shop normally and assign the order to the correct customer.
+
+=== Why create manual orders from the frontend? ===
+
+WooCommerce’s backend order editor does not always reproduce the real customer shopping experience.
+
+With Shop as Client, your staff members can:
+
+* Add products to the cart normally
+* Use coupons and discounts
+* Apply shipping and payment methods
+* Trigger checkout integrations
+* Use plugins that only work on the frontend
+
+This ensures orders behave exactly like customer-placed orders.
+
+=== How it works ===
+
+When an Administrator or Shop Manager reaches checkout:
+
+* All customer checkout fields become available, including custom fields
+* Staff can enter the customer’s email and details
+* The order is automatically assigned to an existing customer if matched by email address
+* Or a new customer account can be created
+* Or the order can remain as a guest order
+
+The result is a clean, correct WooCommerce order created on behalf of the customer.
+
+=== Free plugin features ===
+
+* Place manual orders on behalf of customers using the regular checkout
+* Enter phone and email orders directly in your shop
+* Assign orders to existing customers automatically
+* Create new customers during checkout
+* Allow guest orders when needed
+* Works with both the classic and the block-based WooCommerce checkouts
+* Uses your existing checkout workflow and extensions
+
+=== PRO add-on features ===
+
+The PRO add-on expands staff ordering workflows with powerful tools:
+
+* Live customer search with autocomplete results while typing
+* Fake “Request payment by email” gateway to finalize orders and send payment links to customers
+* Search registered customers by email address, name, company, billing and shipping addresses, or any other profile field
+* Optionally search on previous orders to find customers faster or previous guest orders
+* Allow staff to adjust product prices for special deals or negotiated orders (compatible with WooPayments multi-currency)
+
+**Advanced features for developers and power users**
+
+* [Developer filter](https://gist.github.com/webdados/de05d48a99063ac25f6462b1dedba2ee) to add custom fields to the automatically filled checkout details
+* [User Switching](https://wordpress.org/plugins/user-switching/) integration, to benefit from the fact that the customer is logged in, and still use our plugin functionalities, like the payment request gateway and seller tracking
+* Start the order with a blank checkout form
+* Set default values for the “Shop as client” and “Create user” fields
+* Automatically update the customer details on their profile after checking out
 * Get custom fields from:
 	* [Simple Checkout Fields Manager for WooCommerce](https://nakedcatplugins.com/product/simple-custom-fields-for-woocommerce-blocks-checkout/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin)
 	* [WooCommerce EU VAT Assistant](https://wordpress.org/plugins/woocommerce-eu-vat-assistant/)
 	* [WooCommerce EU VAT Number](https://woocommerce.com/products/eu-vat-number/)
 	* [Invoicing with InvoiceXpress for WooCommerce](https://invoicewoo.com/)
 	* [NIF (Num. de Contribuinte Português) for WooCommerce](https://wordpress.org/plugins/nif-num-de-contribuinte-portugues-for-woocommerce/)
-* Technical support;
-* Continued development;
+* Technical support
+* Continued development
 
 **Now available in lifetime licensing**
 
 Try the PRO add-on for free [here](https://nakedcatplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin#testimonials)!
 
-= Other (premium) plugins =
+=== Ideal use cases ===
+
+Shop as Client is widely used by stores that need assisted ordering:
+
+* Retail stores taking phone orders
+* Shops receiving orders by email
+* Physical stores creating POS orders in WooCommerce
+* Customer support teams placing orders for customers
+* Wholesale and B2B businesses
+* Sales agents managing client purchases
+* Field sales representatives creating B2B orders
+
+=== Built for real WooCommerce workflows ===
+
+Unlike backend order creation, Shop as Client keeps your existing checkout logic intact:
+
+* Payment gateways
+* Shipping rules
+* Checkout customizations
+* Taxes and fees
+* Integrations that only run on checkout
+
+Mostly everything works exactly as if the customer placed the order themselves.
+
+=== Upgrade to PRO ===
+
+Need faster order entry or payment request workflows?
+
+The PRO add-on turns WooCommerce into a powerful assisted-sales system for phone, email, and in-store orders.
+Ideal for teams handling high volumes of phone, email, or assisted orders.
+
+**Now available in lifetime licensing**
+
+Try a demo of the PRO add-on for free [here](https://nakedcatplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/#demo)!
+
+== Other (premium) plugins ==
 
 Already know our other WooCommerce (premium) plugins?
 
@@ -118,6 +201,10 @@ You can report any security bugs found in the source code of this plugin through
 Check out the [PRO add-on FAQs](https://nakedcatplugins.com/faqs/shop-as-client-for-woocommerce-pro-add-on-faq/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin)
 
 == Changelog ==
+
+= 7.5 - 2025-03-29 =
+* [NEW] Renamed from “Shop as Client for WooCommerce” to “Shop as Client for WooCommerce - Manual, Phone & Email Orders”
+* [TWEAK] readme.txt file completely revised
 
 = 7.4 - 2025-03-25 =
 * [NEW] Free plugin ownership transferred from [Marco Almeida | Webdados](https://profiles.wordpress.org/webdados/) to [Naked Cat Plugins](https://profiles.wordpress.org/nakedcatplugins/) on WordPress.org - No worries, we’re the same people :-)
@@ -200,7 +287,7 @@ Check out the [PRO add-on FAQs](https://nakedcatplugins.com/faqs/shop-as-client-
 * [FIX] [PRO add-on](https://nakedcatplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): License validation on websites with WPML set to have different domains per language
 * [TWEAK] [PRO add-on](https://nakedcatplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/?utm_source=wordpress.org&utm_medium=link&utm_campaign=shopasclient_woocommerce_plugin): Only search on orders address index meta field for better performance
 * [DEV] Simplify 3rd-party plugin checks
-* [DEV] Remove WooCommerce 7.1 or above tests as we're not supporting lower versions anyway
+* [DEV] Remove WooCommerce 7.1 or above tests as we’re not supporting lower versions anyway
 * [DEV] Tested with WordPress 6.8-alpha-59837 and WooCommerce 9.7.0-rc.1
 
 = 5.0 - 2024-12-17 =

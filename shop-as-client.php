@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:          Shop as Client for WooCommerce
+ * Plugin Name:          Shop as Client for WooCommerce - Manual, Phone & Email Orders
  * Plugin URI:           https://nakedcatplugins.com/product/shop-as-client-for-woocommerce-pro-add-on/
- * Description:          Allows a WooCommerce Store Administrator or Shop Manager to use the frontend and assign a new order to a registered or new customer. Useful for phone or email orders.
- * Version:              7.4
+ * Description:          Create manual, phone, POS, or email orders in WooCommerce. Shop admins and staff can place customer orders directly from the frontend checkout.
+ * Version:              7.5
  * Author:               Naked Cat Plugins (by Webdados)
  * Author URI:           https://nakedcatplugins.com/
  * Text Domain:          shop-as-client
