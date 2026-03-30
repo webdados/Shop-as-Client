@@ -649,15 +649,23 @@ add_action(
 				'admin_init',
 				function () {
 					if (
-					( ! class_exists( 'Shop_As_Client_Pro' ) ) // Not for PRO add-on users
-					&&
-					( ! defined( 'PTWOO_SIMPLE_ORDER_APPROVAL_NAG' ) )
-					&&
-					( ! class_exists( '\PTWooPlugins\SWOA\SWOA' ) )
-					&&
-					empty( get_transient( 'ptwoo_simple_order_approval_nag' ) )
-					&&
-					apply_filters( 'shop_as_client_ptwoo_simple_order_approval_nag', true )
+						// Not for PRO add-on users
+						( ! class_exists( 'Shop_As_Client_Pro' ) )
+						&&
+						// Not for users that already have the nag loaded for any reason
+						( ! defined( 'PTWOO_SIMPLE_ORDER_APPROVAL_NAG' ) )
+						&&
+						// Not for users that already have the advertised plugin
+						( ! class_exists( '\PTWooPlugins\SWOA\SWOA' ) )
+						&&
+						// Check if dismissed by this user in the last 365 days
+						( intval( get_user_meta( get_current_user_id(), 'ptwoo_simple_order_approval_nag_dismiss_until', true ) ) < time() )
+						&&
+						// Check if 90-day dismissal is active - Legacy support
+						empty( get_transient( 'ptwoo_simple_order_approval_nag' ) )
+						// Removed by filter
+						&&
+						apply_filters( 'shop_as_client_ptwoo_simple_order_approval_nag', true )
 					) {
 						define( 'PTWOO_SIMPLE_ORDER_APPROVAL_NAG', true );
 						require_once 'simple_order_approval_nag/simple_order_approval_nag.php';
