@@ -96,27 +96,6 @@ The [PRO add-on](https://nakedcatplugins.com/product/shop-as-client-for-woocomme
 * Technical support
 * Continued development
 
-=== Free vs Free + PRO add-on ===
-
-| Feature | Free | PRO |
-| --- | --- | --- |
-| Place manual orders from the frontend checkout | ✓ | ✓ |
-| Works with classic and block-based checkout | ✓ | ✓ |
-| Assign orders to existing customers by email | ✓ | ✓ |
-| Create new customers during checkout | ✓ | ✓ |
-| Allow guest orders | ✓ | ✓ |
-| Live customer search with autocomplete | – | ✓ |
-| Search by name, company, address, and profile fields | – | ✓ |
-| Search previous orders and guest orders | – | ✓ |
-| Adjust product prices for special deals | – | ✓ |
-| “Request payment by email” gateway | – | ✓ |
-| [User Switching](https://wordpress.org/plugins/user-switching/) integration | – | ✓ |
-| Start order with blank checkout form | – | ✓ |
-| Set default values for “Shop as client” and “Create user” | – | ✓ |
-| Auto-update customer profile after checkout | – | ✓ |
-| Custom fields from 3rd-party plugins | – | ✓ |
-| Technical support | – | ✓ |
-
 === Ideal use cases ===
 
 Shop as Client is widely used by stores that need assisted ordering:
